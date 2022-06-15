@@ -34,6 +34,8 @@
     width: 30vw;
     margin-left: auto;
     margin-right: auto; }
+  .main-inscription #form-inscription-message {
+    color: #c31e1e; }
 
 * {
   margin: 0;

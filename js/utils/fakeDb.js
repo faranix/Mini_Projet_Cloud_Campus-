@@ -6,7 +6,15 @@ class FakeDb {
 
     add(email, password, nom, prenom, age, adresse, phone) {
         const arrayFinal = JSON.parse(localStorage.getItem("db"));
+        const message = document.querySelector("#form-inscription-message");
         this.count++;
+
+        arrayFinal.forEach(element => {
+            if (email === element.email) {
+                message.textContent = "Email déja utilisé.";
+                throw "Email déja utilisé";
+            }
+        });
 
         const finalUser = {
             id: this.count,
@@ -17,12 +25,15 @@ class FakeDb {
             age,
             adresse,
             phone,
-            lastCo: undefined
+            lastCo: "",
+            grade: "user"
         }
 
         arrayFinal.push(finalUser);
 
         localStorage.setItem("db", JSON.stringify(arrayFinal));
+
+        window.location.replace("connexion.html");
     }
     
     delete() {

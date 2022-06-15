@@ -15,3 +15,27 @@ export function inscription(fakeDb) {
         fakeDb.add(email, password, nom, prenom, age, adresse, phone);
     })
 }
+
+export function connexion() {
+    const form = document.querySelector("#form-connexion");
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const email = document.querySelector("#form-connexion-email").value;
+        const password = document.querySelector("#form-connexion-password").value;
+
+        const storage = JSON.parse(localStorage.getItem("db"));
+
+
+        storage.forEach(element => {
+            if (element.email === email) {
+                console.log(element);
+            } else {
+                throw "Utilisateur introuvable.";
+            }
+        });
+        
+    
+    })
+
+}

@@ -1,5 +1,5 @@
 import FakeDb from "./utils/fakeDb.js";
-import { inscription } from "./utils/event.js";
+import { connexion, inscription } from "./utils/event.js";
 
 const jsonDb = [{
     id: 1,
@@ -11,7 +11,7 @@ const jsonDb = [{
     phone: "",
     adresse: "",
     grade: "admin",
-    lastCo: undefined,
+    lastCo: "",
 }];
 
 const fakeDb = new FakeDb(jsonDb);
@@ -21,6 +21,13 @@ fakeDb.init();
 
 switch (window.location.href) {
     case "http://127.0.0.1:5500/pages/inscription.html":
-        inscription(fakeDb);
+        try {
+            inscription(fakeDb);
+        } catch (error) {
+            console.log(error);
+        }
+        break;
+    case "http://127.0.0.1:5500/pages/connexion.html":
+        connexion(fakeDb);
         break;
 }
