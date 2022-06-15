@@ -1,0 +1,6 @@
+.footer {
+    @include flex(row, center, center);
+    padding: 2rem;
+    background: $color-black;
+    color: $color-white;
+}

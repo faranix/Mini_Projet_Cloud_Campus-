@@ -1,0 +1,18 @@
+// == Autre Fichiers == //
+@import "./mixin.scss";
+@import "./variable.scss";
+
+// == Componnents == //
+@import "./components/Header.scss";
+@import "./components/Footer.scss";
+
+
+// == Views == //
+@import "./views/connexion.scss";
+@import "./views/inscription.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

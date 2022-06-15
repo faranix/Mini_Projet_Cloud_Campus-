@@ -1,0 +1,44 @@
+.header {
+  padding: 2rem 1rem;
+  background: #1a1919;
+  color: #fff; }
+  .header .row {
+    align-items: center; }
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: #1a1919;
+  color: #fff; }
+
+.main-connexion {
+  height: 72.7vh;
+  padding: 3rem 10rem; }
+  .main-connexion h2 {
+    text-align: center;
+    margin-bottom: 4rem; }
+  .main-connexion #form-connexion {
+    width: 30vw;
+    margin-left: auto;
+    margin-right: auto; }
+
+.main-inscription {
+  height: 72.7vh;
+  padding: 3rem 10rem; }
+  .main-inscription h2 {
+    text-align: center;
+    margin-bottom: 4rem; }
+  .main-inscription #form-inscription {
+    width: 30vw;
+    margin-left: auto;
+    margin-right: auto; }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+/*# sourceMappingURL=index.css.map */
