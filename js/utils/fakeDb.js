@@ -1,14 +1,23 @@
 class FakeDb {
     constructor(jsonDb) {
-        this.fakeDbJson = jsonDb
+        this.fakeDbJson = jsonDb;
+        this.count = 1;
     }
 
-    add(email, pass) {
-        const arrayFinal = [JSON.parse(localStorage.getItem("db"))];
+    add(email, password, nom, prenom, age, adresse, phone) {
+        const arrayFinal = JSON.parse(localStorage.getItem("db"));
+        this.count++;
 
         const finalUser = {
+            id: this.count,
             email,
-            pass,
+            password,
+            nom,
+            prenom,
+            age,
+            adresse,
+            phone,
+            lastCo: undefined
         }
 
         arrayFinal.push(finalUser);

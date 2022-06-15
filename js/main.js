@@ -1,10 +1,18 @@
 import FakeDb from "./utils/fakeDb.js";
 import { inscription } from "./utils/event.js";
 
-const jsonDb = {
+const jsonDb = [{
+    id: 1,
     email: "admin@gmail.com",
     password: "admin",
-};
+    nom: "admin",
+    prenom: "admin",
+    age: 22,
+    phone: "",
+    adresse: "",
+    grade: "admin",
+    lastCo: undefined,
+}];
 
 const fakeDb = new FakeDb(jsonDb);
 
