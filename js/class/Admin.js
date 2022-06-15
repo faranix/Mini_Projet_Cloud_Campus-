@@ -114,7 +114,11 @@ class Admin {
 
                     const indexInDb = db.findIndex(el => el.id == id);
                     
-                    db.splice(indexInDb, 1);
+                    if (db[indexInDb].grade !== "admin") {
+                        db.splice(indexInDb, 1);
+                    } else {
+                        console.error("Impossible de supprimer l'admin");
+                    }
 
                     localStorage.setItem("db", JSON.stringify(db));
                     this.view();
