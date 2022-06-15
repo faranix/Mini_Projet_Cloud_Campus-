@@ -1,0 +1,10 @@
+.admin {
+    @include flex(column, center, center);
+    padding: 5rem 2rem;
+    overflow-x: scroll;
+
+    .form-user {
+        display: grid;
+        grid-template-columns: repeat(9, 120px);
+    }
+}

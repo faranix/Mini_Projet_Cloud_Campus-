@@ -50,6 +50,8 @@ switch (window.location.href) {
         checkValideConnexion();
         admin.checkIsAdmin();
         admin.view();
+        admin.update();
+        admin.delete();
         addButtonDisconned();
         break;
 }
