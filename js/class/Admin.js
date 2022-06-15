@@ -55,6 +55,7 @@ class Admin {
     }
 
     update() {
+        const db = JSON.parse(localStorage.getItem("db"));
         const allForm = document.querySelectorAll(".form-user");
         let email = document.querySelectorAll("#form-user-email");
         let password = document.querySelectorAll("#form-user-password"); 
@@ -65,37 +66,33 @@ class Admin {
         let phone = document.querySelectorAll("#form-user-phone");
 
         allForm.forEach((form, index) => {
-            const test = form.dataset.id;
-            console.log(test);
-
-
-            
             form.addEventListener("submit", (e) => {
                 e.preventDefault();
 
-                // const finalUser = {
-                //     id: actifSession.id,
-                //     email: email.value,
-                //     password: password.value,
-                //     nom: nom.value ,
-                //     prenom: prenom.value,
-                //     age: age.value,
-                //     adresse: adresse.value,
-                //     phone: phone.value,
-                //     lastCo: actifSession.lastCo,
-                //     grade: actifSession.grade
-                // }
+                const id = form.dataset.id;
+                const indexInDb = db.findIndex(el => el.id == id);
+                const finalUser = {}
 
-                // db.forEach((element, index) => {
-                //     if (actifSession.id === element.id) {
-                //         console.log(age.value);
-                        
-                //         db.splice(index, 1);
-        
-                //         localStorage.setItem("actifSession", JSON.stringify(finalUser));
-                //         fakeDb.update(actifSession.id, email.value, password.value, nom.value, prenom.value, age.value, adresse.value, phone.value, db);
-                //     }
-                // });
+                db.forEach(element => {
+                    if (element.id == id) {
+                        finalUser.id = id,
+                        finalUser.email = email[index].value,
+                        finalUser.password = password[index].value,
+                        finalUser.nom = nom[index].value,
+                        finalUser.prenom = prenom[index].value,
+                        finalUser.age = age[index].value,
+                        finalUser.adresse = adresse[index].value
+                        finalUser.phone = phone[index].value,
+                        finalUser.lastCo = element.lastCo,
+                        finalUser.grade = element.grade
+                    }
+                });
+                
+            
+                db.splice(indexInDb, 1);
+                db.push(finalUser);
+                localStorage.setItem("db", JSON.stringify(db));
+                this.view();
             })
         });
     }
@@ -103,8 +100,6 @@ class Admin {
     delete() {
         const allForm = document.querySelectorAll(".form-user");
         const db = JSON.parse(localStorage.getItem("db"));
-
-        console.log(db);
         
         allForm.forEach((element, index) => {
             const btnDelete = document.querySelectorAll(`#delete`);
