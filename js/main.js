@@ -54,4 +54,7 @@ switch (window.location.href) {
         admin.delete();
         addButtonDisconned();
         break;
+    default:
+        window.location.href = "http://localhost:5500/index.html";
+        break;
 }
