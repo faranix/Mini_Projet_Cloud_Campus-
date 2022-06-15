@@ -24,6 +24,8 @@
     width: 30vw;
     margin-left: auto;
     margin-right: auto; }
+  .main-connexion #form-connexion-message {
+    color: #c31e1e; }
 
 .main-inscription {
   padding: 3rem 10rem; }

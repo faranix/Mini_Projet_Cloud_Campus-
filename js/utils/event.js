@@ -21,21 +21,27 @@ export function connexion() {
 
     form.addEventListener("submit", (e) => {
         e.preventDefault();
+        const message = document.querySelector("#form-connexion-message");
         const email = document.querySelector("#form-connexion-email").value;
         const password = document.querySelector("#form-connexion-password").value;
 
         const storage = JSON.parse(localStorage.getItem("db"));
 
+        const find = storage.find(element => element.email === email);
 
-        storage.forEach(element => {
-            if (element.email === email) {
-                console.log(element);
+        if (find) {
+            if (find.password === password) {
+                localStorage.setItem("actifSession", JSON.stringify(find));
+                
+                window.location.href = "http://localhost:5500/index.html";
             } else {
-                throw "Utilisateur introuvable.";
+                message.textContent = "Mot de passe incorrect.";
+                throw "Mot de passe incorrect.";
             }
-        });
-        
-    
+        } else {
+            message.textContent = "Utilisateur introuvable.";
+            throw "Utilisateur introuvable.";
+        }
     })
 
 }
