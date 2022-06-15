@@ -26,13 +26,21 @@ export function connexion() {
         const password = document.querySelector("#form-connexion-password").value;
 
         const storage = JSON.parse(localStorage.getItem("db"));
+        const date = new Date();
+        let time = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+
 
         const find = storage.find(element => element.email === email);
 
         if (find) {
             if (find.password === password) {
                 localStorage.setItem("actifSession", JSON.stringify(find));
-                
+
+                let indexInDb = storage.findIndex(el => el.id == find.id);
+
+                storage[indexInDb].lastCo = time
+
+                localStorage.setItem("db", JSON.stringify(storage));
                 window.location.href = "http://localhost:5500/index.html";
             } else {
                 message.textContent = "Mot de passe incorrect.";
