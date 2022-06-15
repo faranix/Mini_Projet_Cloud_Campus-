@@ -45,3 +45,54 @@ export function connexion() {
     })
 
 }
+
+export function userModifer(fakeDb) {
+    const form = document.querySelector("#form-home");
+
+    const actifSession = JSON.parse(localStorage.getItem("actifSession"));
+    const db = JSON.parse(localStorage.getItem("db"));
+
+    let email = document.querySelector("#form-home-email");
+    let password = document.querySelector("#form-home-password"); 
+    let nom = document.querySelector("#form-home-nom");
+    let prenom = document.querySelector("#form-home-prenom");
+    let age = document.querySelector("#form-home-age");
+    let adresse = document.querySelector("#form-home-adresse") ;
+    let phone = document.querySelector("#form-home-phone");
+
+    email.value = actifSession.email;
+    password.value = actifSession.password; 
+    nom.value = actifSession.nom;
+    prenom.value = actifSession.prenom;
+    age.value = actifSession.age;
+    adresse.value = actifSession.adresse;
+    phone.value = actifSession.phone;
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const finalUser = {
+            id: actifSession.id,
+            email: email.value,
+            password: password.value,
+            nom: nom.value ,
+            prenom: prenom.value,
+            age: age.value,
+            adresse: adresse.value,
+            phone: phone.value,
+            lastCo: actifSession.lastCo,
+            grade: actifSession.grade
+        }
+        
+        db.forEach((element, index) => {
+            if (actifSession.id === element.id) {
+                console.log(age.value);
+                
+                db.splice(index, 1);
+
+                localStorage.setItem("actifSession", JSON.stringify(finalUser));
+                fakeDb.update(actifSession.id, email.value, password.value, nom.value, prenom.value, age.value, adresse.value, phone.value, db);
+            }
+        });
+    })
+}

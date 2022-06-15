@@ -1,6 +1,6 @@
-import FakeDb from "./utils/fakeDb.js";
-import { connexion, inscription } from "./utils/event.js";
+import { connexion, inscription, userModifer } from "./utils/event.js";
 import { checkValideConnexion, addButtonDisconned } from "./utils/utils.js";
+import FakeDb from "./class/FakeDb.js";
 import Admin from "./class/Admin.js";
 
 const jsonDb = [{
@@ -27,6 +27,7 @@ switch (window.location.href) {
     case "http://localhost:5500/index.html":
         checkValideConnexion();
         admin.addPanelAdminAccueil();
+        userModifer(fakeDb);
         addButtonDisconned();
         break;
     case "http://localhost:5500/pages/inscription.html":

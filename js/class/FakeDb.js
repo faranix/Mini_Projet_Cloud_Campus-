@@ -7,15 +7,15 @@ class FakeDb {
     add(email, password, nom, prenom, age, adresse, phone) {
         const arrayFinal = JSON.parse(localStorage.getItem("db"));
         const message = document.querySelector("#form-inscription-message");
-        this.count++;
-
+        
         arrayFinal.forEach(element => {
             if (email === element.email) {
                 message.textContent = "Email déja utilisé.";
                 throw "Email déja utilisé";
             }
         });
-
+        
+        this.count++
         const finalUser = {
             id: this.count,
             email,
@@ -34,6 +34,36 @@ class FakeDb {
         localStorage.setItem("db", JSON.stringify(arrayFinal));
 
         window.location.replace("connexion.html");
+    }
+
+    update(id, email, password, nom, prenom, age, adresse, phone, arrayFinal) {
+        const message = document.querySelector("#form-home-message");
+        
+        arrayFinal.forEach(element => {
+            if (email === element.email) {
+                message.textContent = "Email déja utilisé.";
+                throw "Email déja utilisé";
+            }
+        });
+        
+        const finalUser = {
+            id: id,
+            email,
+            password,
+            nom,
+            prenom,
+            age,
+            adresse,
+            phone,
+            lastCo: "",
+            grade: "user"
+        }
+
+        arrayFinal.push(finalUser);
+
+        localStorage.setItem("db", JSON.stringify(arrayFinal));
+
+        message.textContent = "Modifé !";
     }
     
     delete() {

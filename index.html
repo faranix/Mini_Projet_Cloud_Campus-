@@ -41,7 +41,40 @@
         </div>
     </header>
 
-    <main></main>
+    <main class="home container-fluid">
+        <form id="form-home">
+            <div class="mb-3">
+              <label for="form-home-nom" class="form-label">Nom</label>
+              <input type="text" class="form-control" id="form-home-nom" name="form-home-nom" required>
+            </div>
+            <div class="mb-3">
+              <label for="form-home-prenom" class="form-label">Prenom</label>
+              <input type="text" class="form-control" id="form-home-prenom" name="form-home-prenom" required>
+            </div>
+            <div class="mb-3">
+              <label for="form-home-email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="form-home-email" name="form-home-email" aria-describedby="emailHelp" required>
+            </div>
+            <div class="mb-3">
+              <label for="form-home-password" class="form-label">Mot de passe</label>
+              <input type="text" class="form-control" id="form-home-password" name="form-home-password" required>
+            </div>
+            <div class="mb-3">
+                <label for="form-home-age" class="form-label">Age</label>
+                <input type="number" class="form-control" id="form-home-age" name="form-home-age" required>
+            </div>
+            <div class="mb-3">
+                <label for="form-home-phone" class="form-label">Téléphone</label>
+                <input type="number" class="form-control" id="form-home-phone" name="form-home-phone" required>
+            </div>
+            <div class="mb-3">
+                <label for="form-home-adresse" class="form-label">Adresse</label>
+                <input type="text" class="form-control" id="form-home-adresse" name="form-home-adresse" required>
+            </div>
+            <p id="form-home-message"></p>
+            <button type="submit" class="btn btn-primary">Modifier</button>
+          </form>
+    </main>
 
     <footer class="container-fluid footer">
         <p>Copyright | Dev Gledic</p>
