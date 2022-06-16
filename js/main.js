@@ -23,14 +23,14 @@ const admin = new Admin();
 fakeDb.init();
 
 
-switch (window.location.href) {
-    case "http://localhost:5500/index.html":
+switch (window.location.pathname) {
+    case "/index.html":
         checkValideConnexion();
         admin.addPanelAdminAccueil();
         userModifer(fakeDb);
         addButtonDisconned();
         break;
-    case "http://localhost:5500/pages/inscription.html":
+    case "/pages/inscription.html":
         addButtonDisconned();
 
         try {
@@ -39,14 +39,14 @@ switch (window.location.href) {
             console.log(error);
         }
         break;
-    case "http://localhost:5500/pages/connexion.html":
+    case "/pages/connexion.html":
         try {
             connexion(fakeDb);
         } catch (error) {
             console.log(error);
         }
         break;
-    case "http://localhost:5500/pages/admin.html":
+    case "/pages/admin.html":
         checkValideConnexion();
         admin.checkIsAdmin();
         admin.view();
@@ -55,6 +55,6 @@ switch (window.location.href) {
         addButtonDisconned();
         break;
     default:
-        window.location.href = "http://localhost:5500/index.html";
+        window.location.replace("/index.html");
         break;
 }

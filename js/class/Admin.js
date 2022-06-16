@@ -28,10 +28,10 @@ class Admin {
     checkIsAdmin() {
         const actifSession = JSON.parse(localStorage.getItem("actifSession"));
         
-        if (window.location.href === "http://localhost:5500/pages/admin.html") {
+        if (window.location.pathname === "/pages/admin.html") {
             if (actifSession.grade !== "admin") {
                 alert("Vous êtes pas Admin !");
-                window.location.href = "http://localhost:5500/index.html";
+                window.location.replace("/index.html");
             }
         }
         

@@ -41,7 +41,7 @@ export function connexion() {
                 storage[indexInDb].lastCo = time
 
                 localStorage.setItem("db", JSON.stringify(storage));
-                window.location.href = "http://localhost:5500/index.html";
+                window.location.replace("/index.html");
             } else {
                 message.textContent = "Mot de passe incorrect.";
                 throw "Mot de passe incorrect.";

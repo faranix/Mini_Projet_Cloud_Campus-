@@ -1,6 +1,6 @@
 export function checkValideConnexion() {
     if (localStorage.getItem("actifSession") === null) {
-        window.location.href = "http://localhost:5500/pages/connexion.html";
+        window.location.replace("/pages/connexion.html");
     } else {
         const linkConnexion = document.querySelector(".link-connexion");
         const linkInscription = document.querySelector(".link-inscription");
@@ -26,7 +26,7 @@ export function addButtonDisconned() {
         buttonDisconned.addEventListener("click", () => {
             localStorage.removeItem("actifSession");
         
-            window.location.href = "http://localhost:5500/pages/connexion.html";
+            window.location.replace("/pages/connexion.html");
         })
     }
 }
